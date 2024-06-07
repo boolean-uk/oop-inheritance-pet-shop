@@ -68,7 +68,7 @@ describe('Pet Shop Management', () => {
         const dog = new Dog('Ollie', 12, 15)
         petShop.addAnimal(dog)
         expect(petShop.animals.length).toBe(1)
-        expect(petShop.animals[0]).toBe(cat)
+        expect(petShop.animals[0]).toBe(dog)
     })
 
     it('should return animal names', () => {
@@ -76,7 +76,7 @@ describe('Pet Shop Management', () => {
         const cat = new Cat('Daisy', 2, 15)
         petShop.addAnimal(dog)
         petShop.addAnimal(cat)
-        expect(petShop.getAnimalNames()).toEqual(['Ollie', 'Whiskers'])
+        expect(petShop.getAnimalNames()).toEqual(['Ollie', 'Daisy'])
     })
 
     it('should remove an animal correctly', () => {
@@ -84,7 +84,7 @@ describe('Pet Shop Management', () => {
         const cat = new Cat('Daisy', 2, 15)
         petShop.addAnimal(dog)
         petShop.addAnimal(cat)
-        petShop.removeAnimal('Rover')
+        petShop.removeAnimal('Ollie')
         expect(petShop.getAnimalNames()).toEqual(['Daisy'])
     })
 })
