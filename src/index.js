@@ -1,15 +1,44 @@
 export default class PetShop {
+    #contents
+    #animalTypeLimits
+    #animalTypeStock
+    
     constructor() {
-        this.contents = []
+        this.#contents = []
+        this.#animalTypeLimits = {
+            dog: 4,
+            bird: 7,
+            cat: 3,
+            fish: 20,
+        }
+        this.#animalTypeStock ={
+            dog: 0,
+            bird: 0,
+            cat: 0,
+            fish: 0,
+        }
+    }
+
+    get contents() {
+        return [...this.#contents]
     }
 
     addAnimal(animal) {
         if (!animal instanceof Animal) {
-            return new Error('Argument must be an Animal')
+            throw new Error('Argument must be an Animal')
         }
 
-        this.contents.push(animal)
+        const isAtCapacity = this.#animalTypeStock[animal.animalType.toLowerCase()] === this.#animalTypeLimits[animal.animalType.toLowerCase()]
+
+        if(isAtCapacity) {
+            throw new Error('Pet shop at capacity for this class of animal')
+        }
+
+        this.#contents.push(animal)
+
+        this.#animalTypeStock[animal.animalType.toLowerCase()]++
     }
+
 }
 
 class Animal {
@@ -31,6 +60,7 @@ class Dog extends Animal {
     constructor(name, age) {
         super(name, age)
         this.sound = 'Bark'
+        this.animalType = 'Dog'
     }
 }
 
@@ -38,6 +68,7 @@ class Cat extends Animal {
     constructor(name, age) {
         super(name, age)
         this.sound = 'Meow'
+        this.animalType = 'Cat'
     }
 }
 
@@ -45,6 +76,7 @@ class Bird extends Animal {
     constructor(name, age) {
         super(name, age)
         this.sound = 'Chirp'
+        this.animalType = 'Bird'
     }
 }
 
@@ -52,6 +84,7 @@ class Fish extends Animal {
     constructor(name, age) {
         super(name, age)
         this.sound = 'Glub'
+        this.animalType = 'Fish'
     }
 }
 
