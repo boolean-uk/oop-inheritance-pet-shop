@@ -9,9 +9,3 @@ class Cat extends Animal {
     return `${this.name} Say Mioo!`
   }
 }
-
-
-
-const cat = new Cat('Valdo', '1.5', '12')
-
-console.log(cat.sound())
