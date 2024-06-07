@@ -1,6 +1,6 @@
 class Animal {
-    constructor(name, lifespan) {
-       this.name = name
+    constructor(breed, lifespan) {
+       this.breed = breed
        this.lifespan = lifespan
     }
 
@@ -10,8 +10,8 @@ class Animal {
 }
 
 class Dog extends Animal {
-    constructor(name, lifespan, sound, price, age) {
-        super(name, lifespan)
+    constructor(breed, lifespan, sound, price, age) {
+        super(breed, lifespan)
         this.sound = sound
         this.price = price
         this.age = age
@@ -19,8 +19,8 @@ class Dog extends Animal {
 }
 
 class Cat extends Animal {
-    constructor(name, lifespan, sound, price, age) {
-        super(name, lifespan)
+    constructor(breed, lifespan, sound, price, age) {
+        super(breed, lifespan)
         this.sound = sound
         this.price = price
         this.age = age
@@ -28,8 +28,8 @@ class Cat extends Animal {
 }
 
 class Fish extends Animal {
-    constructor(animalName, lifespan, sound, price, age) {
-        super(animalName, lifespan)
+    constructor(breed, lifespan, sound, price, age) {
+        super(breed, lifespan)
         this.sound = sound
         this.price = price
         this.age = age
@@ -37,8 +37,8 @@ class Fish extends Animal {
 }
 
 class Bird extends Animal {
-    constructor(animalName, lifespan, sound, price, age) {
-        super(animalName, lifespan)
+    constructor(breed, lifespan, sound, price, age) {
+        super(breed, lifespan)
         this.sound = sound
         this.price = price
         this.age = age
