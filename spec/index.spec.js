@@ -53,6 +53,6 @@ describe('Animal Inheritance', () => {
 
     it('Fish should make Blub sound', () => {
         const fish = new Fish('Nemo', 1, 3)
-        expect(fish.makeSound()).toBe('Bark!')
+        expect(fish.makeSound()).toBe('Blub!')
     })
 })
