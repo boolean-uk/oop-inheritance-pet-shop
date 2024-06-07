@@ -67,5 +67,28 @@ class Fish extends Animal {
     }
 }
 
+class PetShop {
+    #animals
 
-export { Animal, Dog, Cat, Bird, Fish } 
+    constructor() {
+        this.#animals = []
+    }
+
+    addAnimal(animal) {
+        this.#animals.push(animal)
+    }
+
+    removeAnimal(animalName) {
+        this.#animals = this.#animals.filter(animal => animal.name !== animalName)
+    }
+
+    getAnimalNames() {
+        return this.#animals.map(animal => animal.name)
+    }
+
+    get animals() {
+        return this.#animals
+    }
+}
+
+export { Animal, Dog, Cat, Bird, Fish, PetShop } 

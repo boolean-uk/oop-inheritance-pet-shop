@@ -1,4 +1,4 @@
-import { Animal, Dog, Cat, Bird, Fish } from '../src/index.js'
+import { Animal, Dog, Cat, Bird, Fish, PetShop } from '../src/index.js'
 
 describe('Animal', () => {
     describe('Constructor', () => {
@@ -54,5 +54,37 @@ describe('Animal Inheritance', () => {
     it('Fish should make Blub sound', () => {
         const fish = new Fish('Nemo', 1, 3)
         expect(fish.makeSound()).toBe('Blub!')
+    })
+})
+
+describe('Pet Shop Management', () => {
+    let petShop
+
+    beforeEach(() => {
+        petShop = new PetShop()
+    })
+
+    it('should add animals to the pet shop', () => {
+        const dog = new Dog('Ollie', 12, 15)
+        petShop.addAnimal(dog)
+        expect(petShop.animals.length).toBe(1)
+        expect(petShop.animals[0]).toBe(cat)
+    })
+
+    it('should return animal names', () => {
+        const dog = new Dog('Ollie', 12, 15)
+        const cat = new Cat('Daisy', 2, 15)
+        petShop.addAnimal(dog)
+        petShop.addAnimal(cat)
+        expect(petShop.getAnimalNames()).toEqual(['Ollie', 'Whiskers'])
+    })
+
+    it('should remove an animal correctly', () => {
+        const dog = new Dog('Ollie', 12, 13)
+        const cat = new Cat('Daisy', 2, 15)
+        petShop.addAnimal(dog)
+        petShop.addAnimal(cat)
+        petShop.removeAnimal('Rover')
+        expect(petShop.getAnimalNames()).toEqual(['Daisy'])
     })
 })
