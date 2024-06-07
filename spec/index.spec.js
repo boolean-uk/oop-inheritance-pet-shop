@@ -39,15 +39,22 @@ describe("Pet shops", () => {
   })
 
   it ('should be able to set species limits', () => {
-    testShop.setSpeciesLimit('chihuahua', 3) 
+    testShop.setSpeciesLimit('dog', 3) 
 
-    expect(testShop.speciesLimits.chihuahua).toEqual(3)
+    expect(testShop.speciesLimits.dog).toEqual(3)
   })
 
   it ('should be able to set breed limits', () => {
-    testShop.setBreedLimit('dog', 5) 
+    testShop.setBreedLimit('chihuahua', 5) 
 
-    expect(testShop.breedLimits.dog).toEqual(5)
+    expect(testShop.breedLimits.chihuahua).toEqual(5)
+  })
+
+  it  ('should throw an error when exceeding breed limit', () => {
+    testShop.setBreedLimit('chihuahua', 1) 
+
+    const robin = new Dog ("chihuahua", 13, "yappington", 50, 2);
+    expect(() => {testShop.addStock(robin)}).toThrowError('That would exceed the breed limit')
   })
 
   

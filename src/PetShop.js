@@ -1,3 +1,5 @@
+import { Animal, Dog, Cat, Fish, Bird } from './Animal.js'
+
 class PetShop {
   #currentStock;
   constructor() {
@@ -8,7 +10,11 @@ class PetShop {
   }
 
   addStock(...animals) {
+    
     animals.forEach((animal) => {
+        if (this.getBreedCount(animal.breed) >= this.breedLimits[animal.breed]) {
+            throw new Error('That would exceed the breed limit')
+        }
       animal.breed.toLowerCase();
       this.#currentStock.push(animal);
     });
@@ -28,6 +34,11 @@ class PetShop {
 
   setBreedLimit(breed, limit) {
     this.breedLimits[breed] = limit
+  }
+
+  getBreedCount(breed) {
+
+    return this.#currentStock.filter((animal) => animal.breed = breed).length
   }
 }
 

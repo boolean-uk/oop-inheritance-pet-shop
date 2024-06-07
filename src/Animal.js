@@ -49,4 +49,4 @@ class Bird extends Animal {
 
 
 
-export { Dog, Cat, Fish, Bird }
+export { Animal, Dog, Cat, Fish, Bird }
