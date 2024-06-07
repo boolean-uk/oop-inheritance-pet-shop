@@ -37,5 +37,35 @@ class Dog extends Animal {
     }
 }
 
+class Cat extends Animal {
+    constructor(name, age, expectedLifespan) {
+        super(name, age, expectedLifespan)
+    }
 
-export { Animal, Dog } 
+    makeSound() {
+        return "Meow!"
+    }
+}
+
+class Bird extends Animal {
+    constructor(name, age, expectedLifespan) {
+        super(name, age, expectedLifespan)
+    }
+
+    makeSound() {
+        return "Tweet!"
+    }
+}
+
+class Fish extends Animal {
+    constructor(name, age, expectedLifespan) {
+        super(name, age, expectedLifespan)
+    }
+
+    makeSound() {
+        return "Blub!"
+    }
+}
+
+
+export { Animal, Dog, Cat, Bird, Fish } 
