@@ -19,4 +19,7 @@ describe('Petshop', () => {
         const expected = petshop.find(dave)
         expect(expected).toEqual(dave)
     })
+    it('should throw an error message if animal not found', () => {
+        expect(() => petshop.find(animal)).toThrow(`sorry ${animal.name} was not found in this store`)
+    })
 })
