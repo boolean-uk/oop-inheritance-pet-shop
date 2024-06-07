@@ -20,17 +20,17 @@ describe('Animal', () => {
     describe('getters', () => {
         it('should return the name', () => {
             const animal = new Animal('Dog', 5, 10)
-            expect(animal.name).toBe('Dogs')
+            expect(animal.name).toBe('Dog')
         })
 
         it('should return the age', () => {
             const animal = new Animal('Dog', 5, 10)
-            expect(animal.age).toBe(6)
+            expect(animal.age).toBe(5)
         })
 
         it('should return the expected lifespan', () => {
-            const animal = new Animal('Dog', 5, 10)
-            expect(animal.expectedLifespan).toBe(165)
+            const animal = new Animal('Dog', 5, 15)
+            expect(animal.expectedLifespan).toBe(15)
         })
     })
 })
