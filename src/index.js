@@ -37,12 +37,8 @@ class Animal {
         return `name: ${this.name}, age: ${this.age}, lifespan: ${this.lifespan}, sound: ${this.sound}`
     }
 
-    makesSound() {
-        return `${this.name} likes to ${this.sound}`
-    }
-
     getLifespan() {
-        return `${this.name} will life for ${this.lifespan} years`
+        return `${this.name} will live for ${this.lifespan} years`
     }
 }
 
@@ -52,8 +48,8 @@ class Dog extends Animal {
         this.breed = breed
     }
 
-    bellyRubs() {
-
+    getBreed() {
+        return `${this.name} is a ${this.breed}`
     }
 }
 
@@ -63,16 +59,38 @@ class Cat extends Animal {
         this.breed = breed
     }
 
-   hasZoomies() {
+    getBreed() {
+        return `${this.name} is a ${this.breed}`
+    }
+}
 
-   }
+class Bird extends Animal {
+    constructor(name, age, lifespan, sound, breed) {
+        super(name, age, lifespan, sound)
+        this.breed = breed
+    }
+
+    getBreed() {
+        return `${this.name} is a ${this.breed}`
+    }
+}
+
+class Fish extends Animal {
+    constructor(name, age, lifespan, sound, breed) {
+        super(name, age, lifespan, sound)
+        this.breed = breed
+    }
+
+    getBreed() {
+        return `${this.name} is a ${this.breed}`
+    }
 }
 
 const shop = new PetShop()
 const dave = new Dog('Dave', 4, 15, 'woof','cocker spaniel')
-const pippen = new Cat('Pippen', 5, 18, 'meow', 'sokoke')
+const pippen = new Cat('Pippen', 5, 18, 'yes', 'sokoke')
 
 shop.add(dave)
 shop.add(pippen)
-shop.remove(dave)
+
 
