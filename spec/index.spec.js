@@ -1,4 +1,4 @@
-import PetShop, { Dog, Cat, Bird, Fish } from "../src/index.js";
+import PetShop, { Labrador, GermanShepherd, Siamese, MaineCoon, Budgerigar, Parrot, Betta, NeonTetra } from "../src/index.js";
 
 describe('Pet Shop', () => {
     let petShop
@@ -8,49 +8,57 @@ describe('Pet Shop', () => {
     })
 
     it('should be able to stock various different types of animals', () => {
-        const newDog = new Dog('sully', 3, 13)
-        petShop.addAnimal(newDog)
+        const newLabrador = new Labrador('sully', 3, 13, 2)
+        petShop.addAnimal(newLabrador)
 
-        const newCat = new Cat('lenny', 6, 18)
-        petShop.addAnimal(newCat)
+        const newSiamese = new Siamese('lenny', 6, 18, 3)
+        petShop.addAnimal(newSiamese)
 
-        const newBird = new Bird('ian', 4, 20)
-        petShop.addAnimal(newBird)
+        const newBudgerigar = new Budgerigar('ian', 4, 20, 1)
+        petShop.addAnimal(newBudgerigar)
 
-        const newFish = new Fish('marlin', 1, 5)
-        petShop.addAnimal(newFish)
+        const newBetta = new Betta('marlin', 1, 5, 4)
+        petShop.addAnimal(newBetta)
 
         expect(petShop.animalsList).toEqual([
-            new Dog(
+            new Labrador(
                'sully', 
                3, 
-               13 
+               13,
+               2 
             ),
-            new Cat(
+            new Siamese(
                 'lenny', 
                 6, 
-                18
+                18,
+                3
             ),
-            new Bird(
+            new Budgerigar(
                 'ian', 
                 4, 
-                20
+                20,
+                1
             ),
-            new Fish(
+            new Betta(
                 'marlin', 
                 1, 
-                5
+                5,
+                4
             )
         ])
     })
 
     it('should be able to make sound for each of the animals', () => {
-        const newDog = new Dog('sully', 3, 13)
-        
-        expect(newDog.makeSound()).toBe('sully made a sound')
+        const newLabrador = new Labrador('sully', 3, 13, 2)
+
+        expect(newLabrador.makeSound()).toBe('sully made a sound')
     })
 
     it('should throw an error if animal properties not filled in correctly', () => {
-        expect(() => new Dog('', 3, 13)).toThrowError('Animal properties not provided correctly')
+        expect(() => new Labrador('', 3, 13, 2)).toThrowError('Animal properties not provided correctly')
+    })
+
+    it('should throw an error if the quantity choosen is more than the stock limit', () => {
+        expect(() => new Labrador('sully', 3, 13, 6)).toThrowError('This animal has an stock of 5, can not choose more than its limit')
     })
 })
