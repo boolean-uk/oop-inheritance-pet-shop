@@ -1,6 +1,6 @@
 class PetShop {
   #currentStock;
-  constructor(fishLimit, dogLimit, birdLimit, catLimit) {
+  constructor() {
     this.speciesLimits = {};
     this.breedLimits = {};
     this.shoppingCart = [];
@@ -24,6 +24,10 @@ class PetShop {
 
   setSpeciesLimit(species, limit) {
     this.speciesLimits[species] = limit;
+  }
+
+  setBreedLimit(breed, limit) {
+    this.breedLimits[breed] = limit
   }
 }
 

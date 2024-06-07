@@ -13,7 +13,7 @@ describe("Pet shops", () => {
   let nemo;
 
   beforeEach(() => {
-    testShop = new PetShop(5, 5, 5, 5);
+    testShop = new PetShop();
     steve = new Dog("Chihuahua", 15, "YAP YAP YAP", 5, 6);
     dave = new Dog("Irish Wolfhound", 13, "YARF", 25, 2);
     cliff = new Cat("British Shorthair", 15, "Prrr Prrr", 10, 4);
@@ -42,6 +42,12 @@ describe("Pet shops", () => {
     testShop.setSpeciesLimit('chihuahua', 3) 
 
     expect(testShop.speciesLimits.chihuahua).toEqual(3)
+  })
+
+  it ('should be able to set breed limits', () => {
+    testShop.setBreedLimit('dog', 5) 
+
+    expect(testShop.breedLimits.dog).toEqual(5)
   })
 
   
