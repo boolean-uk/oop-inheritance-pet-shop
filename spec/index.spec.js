@@ -9,10 +9,10 @@ describe('Petshop', () => {
 
     beforeEach(() => {
         petshop = new Petshop()
-        dog = new Dog('Zuko', 4, 14, 'woof')
-        cat = new Cat('Feline', 8, 17, 'miauw')
-        bird = new Bird('Birdo', 6, 20, 'chirp')
-        fish = new Fish('Nemo', 1, 4, 'blub')
+        dog = new Dog('Zuko', 4, 14, 'woof', 'Dog', 'Welsh cardigan corgi')
+        cat = new Cat('Feline', 8, 17, 'miauw', 'Cat', 'British shorthair')
+        bird = new Bird('Birdo', 6, 20, 'chirp', 'Bird', 'Canary')
+        fish = new Fish('Nemo', 1, 4, 'blub', 'Fish', 'Clownfish')
     })
 
     it('should exist', () => {
@@ -31,6 +31,8 @@ describe('Petshop', () => {
         expect(petshop.animals[0].age).toBe(4)
         expect(petshop.animals[0].lifespan).toBe(14)
         expect(petshop.animals[0].sound).toBe('woof')
+        expect(petshop.animals[0].type).toBe('Dog')
+        expect(petshop.animals[0].subType).toBe('Welsh cardigan corgi')
 
         expect(petshop.animals[1].name).toBe('Feline')
 
@@ -49,6 +51,21 @@ describe('Petshop', () => {
         expect(cat.makeSound()).toBe('Feline said: miauw')
         expect(bird.makeSound()).toBe('Birdo said: chirp')
         expect(fish.makeSound()).toBe('Nemo said: blub')
+    })
 
+    it('should be able to differentiate between animal types', () => {
+        petshop.addAnimal(dog)
+        petshop.addAnimal(cat)
+        petshop.addAnimal(bird)
+        petshop.addAnimal(fish)
+
+        expect(petshop.dogs.length).toBe(1)
+        expect(petshop.dogs[0].name).toBe('Zuko')
+
+        expect(petshop.cats[0].name).toBe('Feline')
+
+        expect(petshop.birds[0].name).toBe('Birdo')
+
+        expect(petshop.fish[0].name).toBe('Nemo')
     })
 })
