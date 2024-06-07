@@ -38,6 +38,6 @@ describe('Animal', () => {
 describe('Animal Inheritance', () => {
     it('Dog should make Woof sound', () => {
         const dog = new Dog('Ollie', 12, 15)
-        expect(dog.makeSound()).toBe('Bark!')
+        expect(dog.makeSound()).toBe('Woof!')
     })
 })
