@@ -10,10 +10,4 @@ class Dog extends Animal {
   }
 }
 
-
-const animal = new Animal('Pillar', 6.5, '12')
-// console.log(animal.sound())
-
-const dog = new Dog('Valdo', '1.5', '12')
-
-console.log(dog.sound())
+export { Dog }

@@ -9,3 +9,5 @@ class Bird extends Animal {
     return `${this.name} Say tweet!`
   }
 }
+
+export { Bird }
