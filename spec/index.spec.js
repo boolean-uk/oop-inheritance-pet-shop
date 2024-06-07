@@ -22,4 +22,13 @@ describe('Petshop', () => {
     it('should throw an error message if animal not found', () => {
         expect(() => petshop.find(animal)).toThrow(`sorry ${animal.name} was not found in this store`)
     })
+    it('should remove an animal from the list', () => {
+        let dave = new Dog('Dave', 4, 15, 'woof','cocker spaniel')
+        let pippen = new Cat('Pippen', 5, 18, 'yes', 'sokoke')
+        petshop.add(dave)
+        petshop.add(pippen)
+        petshop.remove(dave)
+        expect(petshop.animals.length).toBe(1)
+        expect(petshop.animals[0].name).toBe('Pippen')
+    })
 })
