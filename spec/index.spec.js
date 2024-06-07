@@ -1,4 +1,4 @@
-import { Animal } from '../src/index.js'
+import { Animal, Dog } from '../src/index.js'
 
 describe('Animal', () => {
     describe('Constructor', () => {
@@ -32,5 +32,12 @@ describe('Animal', () => {
             const animal = new Animal('Dog', 5, 15)
             expect(animal.expectedLifespan).toBe(15)
         })
+    })
+})
+
+describe('Animal Inheritance', () => {
+    it('Dog should make Woof sound', () => {
+        const dog = new Dog('Ollie', 12, 15)
+        expect(dog.makeSound()).toBe('Bark!')
     })
 })

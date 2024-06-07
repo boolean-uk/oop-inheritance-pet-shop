@@ -27,4 +27,15 @@ class Animal {
 
 }
 
-export { Animal } 
+class Dog extends Animal {
+    constructor(name, age, expectedLifespan) {
+        super(name, age, expectedLifespan)
+    }
+
+    makeSound() {
+        return "Woof!"
+    }
+}
+
+
+export { Animal, Dog } 
