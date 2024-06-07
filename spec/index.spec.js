@@ -57,5 +57,13 @@ describe("Pet shops", () => {
     expect(() => {testShop.addStock(robin)}).toThrowError('That would exceed the breed limit')
   })
 
+  it  ('should throw an error when exceeding species limit', () => {
+    testShop.setSpeciesLimit('Dog', 2) 
+
+    const robin = new Dog("terrier", 15, "YAPOO", 5, 6);
+
+    expect(() => {testShop.addStock(robin)}).toThrowError('That would exceed the species limit')
+  })
+
   
 });
