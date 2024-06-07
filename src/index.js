@@ -86,6 +86,9 @@ class Fish extends Animal {
     }
 }
 
+export { Animal, Dog, Cat, Fish, Bird }
+export default PetShop
+
 const shop = new PetShop()
 const dave = new Dog('Dave', 4, 15, 'woof','cocker spaniel')
 const pippen = new Cat('Pippen', 5, 18, 'yes', 'sokoke')
