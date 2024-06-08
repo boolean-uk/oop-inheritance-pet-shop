@@ -44,30 +44,3 @@ class Fish extends PetShop {
 }
 
 module.exports = { PetShop, Dog, Cat, Bird, Fish };
-
-// Parent (super) class
-// class Animal {
-//     constructor(name) {
-//         this.name = name
-//     }
-
-//     speak() {
-//         return `${this.name} made a sound!`
-//     }
-// }
-
-// // Child (sub) class
-// class Dog extends Animal {
-//     constructor(numberOfLegs, name) {
-//         super(name)
-//         this.numberOfLegs = numberOfLegs
-//     }
-
-//     speak() {
-//         return `${this.name} woofed!`
-//     }
-// }
-
-// const fred = new Dog(3, 'Fred')
-
-// console.log(fred.speak())
