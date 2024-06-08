@@ -8,7 +8,7 @@ describe('Petshop', () => {
     let fish
 
     beforeEach(() => {
-        petshop = new Petshop()
+        petshop = new Petshop([{type: 'dog', limit: 3}, {type: 'cat', limit: 6}, {type: 'bird', limit: 4}, {type: 'fish', limit: 8}])
         dog = new Dog('Zuko', 4, 14, 'woof', 'Dog', 'Welsh cardigan corgi')
         cat = new Cat('Feline', 8, 17, 'miauw', 'Cat', 'British shorthair')
         bird = new Bird('Birdo', 6, 20, 'chirp', 'Bird', 'Canary')
@@ -50,22 +50,6 @@ describe('Petshop', () => {
         expect(bird.makeSound()).toBe('Birdo said: chirp')
         expect(fish.makeSound()).toBe('Nemo said: blub')
     })
-
-    // it('should be able to differentiate between animal types', () => {
-    //     petshop.addAnimal(dog)
-    //     petshop.addAnimal(cat)
-    //     petshop.addAnimal(bird)
-    //     petshop.addAnimal(fish)
-
-    //     expect(petshop.dogs.length).toBe(1)
-    //     expect(petshop.dogs[0].name).toBe('Zuko')
-
-    //     expect(petshop.cats[0].name).toBe('Feline')
-
-    //     expect(petshop.birds[0].name).toBe('Birdo')
-
-    //     expect(petshop.fish[0].name).toBe('Nemo')
-    // })
 
     it('should not be able to add more dogs than the limit allows', () => {
         petshop.addAnimal(dog)
@@ -127,14 +111,4 @@ describe('Petshop', () => {
         expect(petshop.animals.length).toBe(8)
         expect(petshop.stock.fish).toBe(8)
     })
-
-    // it('should be able to add a new fishtype', () => {
-    //     petshop.addAnimal(fish)
-    //     fish.addFishType('clownfish', 3)
-
-    //     // expect(petshop.animal).toBe(8)
-
-    //     // expect(() => petshop.addAnimal(fish)).toThrow('you have reached the max number of animals for this type')
-    //     // expect(petshop.fish.length).toBe(8)
-    // })
 })

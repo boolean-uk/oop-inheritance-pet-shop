@@ -1,18 +1,13 @@
 class Petshop {
-    constructor() {
+    constructor(animalTypes = []) {
         this.animals = []
-        this.stock = {
-            dog: 0,
-            cat: 0,
-            bird: 0,
-            fish: 0
-        }
-        this.typeLimit = {
-            dog : 3,
-            cat : 6,
-            bird : 4,
-            fish : 8
-        }
+        this.stock = {}
+        this.typeLimit = {}
+
+        animalTypes.forEach((t) => {
+            this.stock[t.type] = 0
+            this.typeLimit[t.type] = t.limit
+        });
     }
 
     addAnimal(animal) {
