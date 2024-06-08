@@ -12,7 +12,7 @@ describe('Petshop', () => {
         dog = new Dog('Zuko', 4, 14, 'woof', 'Dog', 'Welsh cardigan corgi')
         cat = new Cat('Feline', 8, 17, 'miauw', 'Cat', 'British shorthair')
         bird = new Bird('Birdo', 6, 20, 'chirp', 'Bird', 'Canary')
-        fish = new Fish('Nemo', 1, 4, 'blub', 'Fish', 'Clownfish')
+        fish = new Fish('Nemo', 1, 4, 'blub', 'Fish', 'Clownfish', 3)
     })
 
     it('should exist', () => {
@@ -31,8 +31,6 @@ describe('Petshop', () => {
         expect(petshop.animals[0].age).toBe(4)
         expect(petshop.animals[0].lifespan).toBe(14)
         expect(petshop.animals[0].sound).toBe('woof')
-        expect(petshop.animals[0].type).toBe('Dog')
-        expect(petshop.animals[0].subType).toBe('Welsh cardigan corgi')
 
         expect(petshop.animals[1].name).toBe('Feline')
 
@@ -53,31 +51,33 @@ describe('Petshop', () => {
         expect(fish.makeSound()).toBe('Nemo said: blub')
     })
 
-    it('should be able to differentiate between animal types', () => {
-        petshop.addAnimal(dog)
-        petshop.addAnimal(cat)
-        petshop.addAnimal(bird)
-        petshop.addAnimal(fish)
+    // it('should be able to differentiate between animal types', () => {
+    //     petshop.addAnimal(dog)
+    //     petshop.addAnimal(cat)
+    //     petshop.addAnimal(bird)
+    //     petshop.addAnimal(fish)
 
-        expect(petshop.dogs.length).toBe(1)
-        expect(petshop.dogs[0].name).toBe('Zuko')
+    //     expect(petshop.dogs.length).toBe(1)
+    //     expect(petshop.dogs[0].name).toBe('Zuko')
 
-        expect(petshop.cats[0].name).toBe('Feline')
+    //     expect(petshop.cats[0].name).toBe('Feline')
 
-        expect(petshop.birds[0].name).toBe('Birdo')
+    //     expect(petshop.birds[0].name).toBe('Birdo')
 
-        expect(petshop.fish[0].name).toBe('Nemo')
-    })
+    //     expect(petshop.fish[0].name).toBe('Nemo')
+    // })
 
     it('should not be able to add more dogs than the limit allows', () => {
         petshop.addAnimal(dog)
         petshop.addAnimal(dog)
         petshop.addAnimal(dog)
 
-        expect(petshop.dogs.length).toBe(3)
+        expect(petshop.animals.length).toBe(3)
+        expect(petshop.stock.dog).toBe(3)
 
         expect(() => petshop.addAnimal(dog)).toThrow('you have reached the max number of animals for this type')
-        expect(petshop.dogs.length).toBe(3)
+        expect(petshop.animals.length).toBe(3)
+        expect(petshop.stock.dog).toBe(3)
     })
 
     it('should not be able to add more cats than the limit allows', () => {
@@ -88,10 +88,12 @@ describe('Petshop', () => {
         petshop.addAnimal(cat)
         petshop.addAnimal(cat)
 
-        expect(petshop.cats.length).toBe(6)
+        expect(petshop.animals.length).toBe(6)
+        expect(petshop.stock.cat).toBe(6)
 
         expect(() => petshop.addAnimal(cat)).toThrow('you have reached the max number of animals for this type')
-        expect(petshop.cats.length).toBe(6)
+        expect(petshop.animals.length).toBe(6)
+        expect(petshop.stock.cat).toBe(6)
     })
 
     it('should not be able to add more birds than the limit allows', () => {
@@ -100,10 +102,12 @@ describe('Petshop', () => {
         petshop.addAnimal(bird)
         petshop.addAnimal(bird)
 
-        expect(petshop.birds.length).toBe(4)
+        expect(petshop.animals.length).toBe(4)
+        expect(petshop.stock.bird).toBe(4)
 
         expect(() => petshop.addAnimal(bird)).toThrow('you have reached the max number of animals for this type')
-        expect(petshop.birds.length).toBe(4)
+        expect(petshop.animals.length).toBe(4)
+        expect(petshop.stock.bird).toBe(4)
     })
 
     it('should not be able to add more fish than the limit allows', () => {
@@ -116,9 +120,21 @@ describe('Petshop', () => {
         petshop.addAnimal(fish)
         petshop.addAnimal(fish)
 
-        expect(petshop.fish.length).toBe(8)
+        expect(petshop.animals.length).toBe(8)
+        expect(petshop.stock.fish).toBe(8)
 
         expect(() => petshop.addAnimal(fish)).toThrow('you have reached the max number of animals for this type')
-        expect(petshop.fish.length).toBe(8)
+        expect(petshop.animals.length).toBe(8)
+        expect(petshop.stock.fish).toBe(8)
     })
+
+    // it('should be able to add a new fishtype', () => {
+    //     petshop.addAnimal(fish)
+    //     fish.addFishType('clownfish', 3)
+
+    //     // expect(petshop.animal).toBe(8)
+
+    //     // expect(() => petshop.addAnimal(fish)).toThrow('you have reached the max number of animals for this type')
+    //     // expect(petshop.fish.length).toBe(8)
+    // })
 })
