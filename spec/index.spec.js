@@ -9,10 +9,10 @@ describe('Petshop', () => {
 
     beforeEach(() => {
         petshop = new Petshop([{type: 'dog', limit: 3}, {type: 'cat', limit: 6}, {type: 'bird', limit: 4}, {type: 'fish', limit: 8}])
-        dog = new Dog('Zuko', 4, 14, 'woof', 'Dog', 'Welsh cardigan corgi')
-        cat = new Cat('Feline', 8, 17, 'miauw', 'Cat', 'British shorthair')
-        bird = new Bird('Birdo', 6, 20, 'chirp', 'Bird', 'Canary')
-        fish = new Fish('Nemo', 1, 4, 'blub', 'Fish', 'Clownfish', 3)
+        dog = new Dog('Zuko', 4, 14, 'woof')
+        cat = new Cat('Feline', 8, 17, 'miauw')
+        bird = new Bird('Birdo', 6, 20, 'chirp')
+        fish = new Fish('Nemo', 1, 4, 'blub')
     })
 
     it('should exist', () => {

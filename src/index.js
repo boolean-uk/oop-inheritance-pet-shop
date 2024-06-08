@@ -22,11 +22,10 @@ class Petshop {
 }
 
 class Animal {
-    constructor(name, age, lifespan, sound) {
+    constructor(name, age, lifespan) {
         this.name = name
         this.age = age
         this.lifespan = lifespan
-        this.sound = sound
     }
 
     makeSound() {
@@ -35,30 +34,34 @@ class Animal {
 }
 
 class Dog extends Animal {
-    constructor(name, age, lifespan, sound) {
-        super(name, age, lifespan, sound)
+    constructor(name, age, lifespan) {
+        super(name, age, lifespan)
         this.type = 'dog'
+        this.sound = 'woof'
     }
 }
 
 class Cat extends Animal {
-    constructor(name, age, lifespan, sound) {
-        super(name, age, lifespan, sound)
+    constructor(name, age, lifespan) {
+        super(name, age, lifespan)
         this.type = 'cat'
+        this.sound = 'miauw'
     }
 }
 
 class Bird extends Animal {
-    constructor(name, age, lifespan, sound) {
-        super(name, age, lifespan, sound)
+    constructor(name, age, lifespan) {
+        super(name, age, lifespan)
         this.type = 'bird'
+        this.sound = 'chirp'
     }
 }
 
 class Fish extends Animal {
-    constructor(name, age, lifespan, sound, type) {
-        super(name, age, lifespan, sound, type)
+    constructor(name, age, lifespan) {
+        super(name, age, lifespan)
         this.type = 'fish'
+        this.sound = 'blub'
     }
 }
 
