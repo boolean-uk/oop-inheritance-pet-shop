@@ -58,4 +58,11 @@ describe("Core Criteria", () => {
         
       });
     
+      it("should add animal to pet shop", () => {
+        let dog = new Dog("Charger", 3, 9, "woof");
+        let cat = new Cat("whiskers", 3, 15, "meow");
+        let bird = new Bird("Tweeny", 3, 15, "tweeeiiit");
+        let fish = new Fish("Tinkerbell", 3, 15, "blooop blooop");
+      });
+    
 })
