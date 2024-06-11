@@ -18,6 +18,18 @@ export class Animal {
     sound;
   
     constructor(name, age, xlifespan, sound) {
+
+        if (name === undefined || name === null || name.trim() === "")
+            throw "name is required";
+      
+          if (age === undefined || age === NaN || age < 0) throw "age is required";
+      
+          if (xlifespan === undefined || xlifespan === NaN || xlifespan < 0)
+            throw "expected lifespan is required";
+      
+          if (sound === undefined || sound === null || sound.trim() === "")
+            throw "sound is required";
+      
         this.name = name
         this.age = age
         this.xlifespan = xlifespan

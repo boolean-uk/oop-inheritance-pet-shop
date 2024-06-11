@@ -2,6 +2,7 @@ import PetShop, { AnimalType, Animal, Dog, Cat, Bird, Fish  } from "../src/index
 
 describe("Core Criteria", () => {
     let petShop;
+
   
     it("should exist", () => {
       petShop = new PetShop([]);
@@ -22,5 +23,23 @@ describe("Core Criteria", () => {
       expect(animal).toBeInstanceOf(Animal);
       expect(animal).toBeInstanceOf(Fish);
     });
+    
+    it("animals should have a name, age, expected lifespan and sound", () => {
+        expect(() => {
+          new Bird();
+        }).toThrow("name is required");
+        expect(() => {
+          new Bird("Pinky");
+        }).toThrow("age is required");
+        expect(() => {
+          new Bird("Pinky", 5);
+        }).toThrow("expected lifespan is required");
+        expect(() => {
+          new Bird("Pinky", 5, 10);
+        }).toThrow("sound is required");
+        expect(() => {
+          new Bird("Pinky", 5, 10, "quark");
+        }).not.toThrow();
+      });
     
 })
