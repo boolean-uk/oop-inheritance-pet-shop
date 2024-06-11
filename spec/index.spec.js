@@ -42,4 +42,20 @@ describe("Core Criteria", () => {
         }).not.toThrow();
       });
     
+      it("should stock various different types of animals", () => {
+        let dogType = new AnimalType("dog", 10);
+        let catType = new AnimalType("cat", 8);
+        let birdType = new AnimalType("bird", 12);
+        let fishType = new AnimalType("fish", 6);
+        let frogType = new AnimalType("frog", 9);
+    
+        petShop = new PetShop([dogType, catType, birdType, fishType, frogType]);
+        expect(petShop.animalTypeStockLimit["dog"].limit).toBe(10);
+        expect(petShop.animalTypeStockLimit["cat"].limit).toBe(8);
+        expect(petShop.animalTypeStockLimit["bird"].limit).toBe(12);
+        expect(petShop.animalTypeStockLimit["fish"].limit).toBe(6);
+        expect(petShop.animalTypeStockLimit["frog"].limit).toBe(9);
+        
+      });
+    
 })
