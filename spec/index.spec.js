@@ -1,10 +1,4 @@
-const {
-  PetShop,
-  Dog,
-  Cat,
-  Bird,
-  Fish,
-} = require(`/Users/samisaeed/Boolean/oop-inheritance-pet-shop/src/index.js`);
+const { PetShop, Dog, Cat, Bird, Fish } = require(`../src/index.js`);
 
 describe("PetShop", () => {
   it("residents should have the ability to make a sound", function () {
