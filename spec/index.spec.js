@@ -15,9 +15,10 @@ describe('PetShop', () => {
         const cat = new Cat('PussyCat', 3, 17)
 
         petShop.addAnimal(dog)
+        petShop.addAnimal(cat)
 
         const animals = petShop.listAnimals()
-        expect(animals.length).toBe(1) 
+        expect(animals.length).toBe(2) 
         expect(animals).toContain(dog)
         expect(animals).toContain(cat)
     })
@@ -26,8 +27,9 @@ describe('PetShop', () => {
 describe('Animal Sounds', () => {
     it('should return the correct sound for each animal', () => {
         const dog = new Dog('Rex', 2, 13)
+        const cat = new Cat('PussyCat', 3, 17)
 
         expect(dog.makesound()).toBe('woof!')
-        expect(Cat.makesound()).toBe('Meow Meow')
+        expect(cat.makesound()).toBe('Meow Meow')
     })
 })
