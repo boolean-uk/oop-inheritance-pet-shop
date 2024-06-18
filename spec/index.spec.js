@@ -17,7 +17,7 @@ describe('PetShop', () => {
         const dog = new Dog('Rex', 2, 13)
         const cat = new Cat('PussyCat', 3, 17)
         const fish = new Fish('Fishfish', 9, 20)
-        const bird = new Bird('Chirps', 5, 99)
+        const bird = new Bird('Birdie', 5, 99)
 
         petShop.addAnimal(dog)
         petShop.addAnimal(cat)
@@ -38,7 +38,7 @@ describe('Animal Sounds', () => {
         const dog = new Dog('Rex', 2, 13)
         const cat = new Cat('PussyCat', 3, 17)
         const fish = new Fish('Fishfish', 9,20)
-        const bird = new Bird('Chirps', 5, 99)
+        const bird = new Bird('Birdie', 5, 99)
 
         expect(dog.makesound()).toBe('woof!')
         expect(cat.makesound()).toBe('Meow Meow')
