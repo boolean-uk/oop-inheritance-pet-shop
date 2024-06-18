@@ -6,7 +6,7 @@ class Cat extends Animal {
     }
 
     makesound() {
-        return 'Meow!'
+        return 'Meow Meow'
     }
 }
 
