@@ -1,7 +1,7 @@
 const Animal = require('./Animal')
 
 class Dog extends Animal {
-    constructor (name, age, expectedLifespan ) {
+    constructor(name, age, expectedLifespan) {
         super(name, age, expectedLifespan)
     }
 

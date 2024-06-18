@@ -1,21 +1,28 @@
-const Dog = require('../Dog')
+const Dog = require('../src/Dog')
+const PetShop = require('../src/PetShop')
 
+describe('PetShop', () => {
+    let petShop
 
-describe('PetShop', ()  => {
-    let PetShop
-
-    beforeEach(  () => {
-        PetShop = new PetShop()
+    beforeEach(() => {
+        petShop = new PetShop()
     })
-    it ('should add and list animals', () => {
-        const dog = new Dog ('Rex', 2, 13)
 
+    it('should add and list animals', () => {
+        const dog = new Dog('Rex', 2, 13)
 
-        PetShop.addAnimal(dog)
-
+        petShop.addAnimal(dog)
 
         const animals = petShop.listAnimals()
-        expect(animals.length).toBe(4)
+        expect(animals.length).toBe(1) 
         expect(animals).toContain(dog)
+    })
+})
+
+describe('Animal Sounds', () => {
+    it('should return the correct sound for each animal', () => {
+        const dog = new Dog('Rex', 2, 13)
+
+        expect(dog.makesound()).toBe('woof!')
     })
 })
