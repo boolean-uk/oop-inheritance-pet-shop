@@ -25,7 +25,7 @@ describe('PetShop', () => {
         petShop.addAnimal(bird)
 
         const animals = petShop.listAnimals()
-        expect(animals.length).toBe(3) 
+        expect(animals.length).toBe(4) 
         expect(animals).toContain(dog)
         expect(animals).toContain(cat)
         expect(animals).toContain(fish)

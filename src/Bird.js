@@ -6,7 +6,7 @@ class Bird extends Animal {
     }
 
     makesound() {
-        return 'Meow Meow'
+        return 'Chirp'
     }
 }
 
