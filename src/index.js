@@ -14,12 +14,16 @@ class PetShop {
 
 		if (!animalData) return false;
 
-		if (animalGroup.capacity > 0 && animalData.capacity > 0) {
-			animalGroup.capacity--;
-			animalData.capacity--;
-			this.#animals.push(animal);
-			return true;
-		} else return false;
+		console.log(animalGroup.capacity, animalData.capacity);
+
+		if (!(animalGroup.capacity > 0 && animalData.capacity > 0)) {
+			return false;
+		}
+
+		animalGroup.capacity--;
+		animalData.capacity--;
+		this.#animals.push(animal);
+		return true;
 	}
 
 	#findAnimalGroupDataSchema(animal) {

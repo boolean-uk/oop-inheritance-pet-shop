@@ -22,7 +22,6 @@ class Poodle extends Dog {
 		this.breed = "Poodle";
 	}
 }
-
 class Reptile extends Animal {}
 
 class Lizard extends Reptile {}
@@ -40,25 +39,6 @@ function labradorPriceFunction(pet) {
 function poodlePriceFunction(pet) {
 	return defaultPriceFunction(pet, 150);
 }
-
-const dogShopSchema = [
-	{
-		class: Dog,
-		capacity: 2,
-		areas: [
-			{
-				class: Labrador,
-				capacity: 2,
-				priceFunction: labradorPriceFunction,
-			},
-			{
-				class: Poodle,
-				capacity: 1,
-				priceFunction: poodlePriceFunction,
-			},
-		],
-	},
-];
 
 const reptileShopSchema = [
 	{
@@ -124,12 +104,31 @@ const zooShopSchema = [
 	},
 ];
 
-describe("petshop contructor", () => {
+describe("petshop", () => {
 	let dogPetShop, reptilePetShop;
 
 	beforeEach(() => {
+		const dogShopSchema = [
+			{
+				class: Dog,
+				capacity: 2,
+				areas: [
+					{
+						class: Labrador,
+						capacity: 2,
+						priceFunction: labradorPriceFunction,
+					},
+					{
+						class: Poodle,
+						capacity: 1,
+						priceFunction: poodlePriceFunction,
+					},
+				],
+			},
+		];
 		dogPetShop = new PetShop(dogShopSchema);
 		reptilePetShop = new PetShop(reptileShopSchema);
+		console.log("Dog", dogPetShop);
 	});
 
 	it("Should initialize a shop with a schema and an empty animals array", () => {
@@ -142,8 +141,7 @@ describe("petshop contructor", () => {
 	});
 
 	it("Should only remove an animal that is in the pet shop", () => {
-		dogPetShop.add(new Poodle("Missy", 10, 5));
-		console.log(dogPetShop.totalAnimals);
+		expect(dogPetShop.add(new Poodle("Missy", 10, 5))).toBe(true);
 
 		expect(dogPetShop.remove(new Poodle("Missy", 10, 5))).toBeDefined();
 		expect(
@@ -152,7 +150,7 @@ describe("petshop contructor", () => {
 	});
 
 	it("Should not exceed the max capacity for the animal described in the pet shop schema", () => {
-        //pet shop only allows 2 dogs, either 2 labradors or 1 poodle and 1 labrador
+		//pet shop only allows 2 dogs, either 2 labradors or 1 poodle and 1 labrador
 		expect(dogPetShop.add(new Poodle("Missy", 10, 5))).toBe(true);
 		expect(dogPetShop.add(new Poodle("eldooP", 10, 5))).toBe(false);
 		expect(dogPetShop.add(new Labrador("Max", 10, 5))).toBe(true);
